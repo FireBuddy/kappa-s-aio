@@ -311,7 +311,7 @@
         {
             CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
             var flags = Orbwalker.ActiveModesFlags;
-            if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)) || (CurrentTarget.Hero == Champion.Yasuo && CurrentTarget.Mana >= 90) )
+            if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)) || (CurrentTarget.Hero == Champion.Yasuo))
             {
                return;
             }
