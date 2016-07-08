@@ -313,7 +313,7 @@
             {
                return;
             }
-            CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
+            
             if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
             {
                 
