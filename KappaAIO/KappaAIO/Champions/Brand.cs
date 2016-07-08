@@ -94,6 +94,8 @@
                 ComboMenu.Add("RAoe", new CheckBox("Use R Aoe"));
                 ComboMenu.Add("Rhit", new Slider("R AoE hit [{0}] Targets or more", 2, 1, 6));
                 ComboMenu.Add(R.Slot + "mana", new Slider("Use R if Mana% is more than [{0}%]"));
+                
+                LaneClearMenu.Add("LaneClear", new KeyBind("LaneClear Key", false, KeyBind.BindTypes.HoldActive, 'Z'));
 
                 foreach (var spell in SpellList.Where(s => s.Slot != SpellSlot.R))
                 {
@@ -372,20 +374,23 @@
             var Wready = LaneClearMenu["W"].Cast<CheckBox>().CurrentValue && W.IsReady() && target.IsKillable(W.Range) && W.Mana(LaneClearMenu);
 
             var Eready = LaneClearMenu["E"].Cast<CheckBox>().CurrentValue && E.IsReady() && target.IsKillable(E.Range) && E.Mana(LaneClearMenu);
-
-            if (Qready)
-            {
-                Qlogic(target);
-            }
-
-            if (Wready)
-            {
-                Wlogic(target);
-            }
-
-            if (Eready)
-            {
-                Elogic(target);
+            
+            if (!LaneClearMenu["LaneClear"].Cast<KeyBind>().CurrentValue)
+            {    
+                if (Qready)
+                {
+                    Qlogic(target);
+                }
+    
+                if (Wready)
+                {
+                    Wlogic(target);
+                }
+    
+                if (Eready)
+                {
+                    Elogic(target);
+                }
             }
         }
 
@@ -564,7 +569,7 @@
 
                 var farmpos = loc.CastPosition;
 
-                if (farmpos != null && loc.HitNumber >= 2)
+                if (farmpos != null && loc.HitNumber >= 4)
                 {
                     W.Cast(farmpos);
                 }
