@@ -172,6 +172,8 @@
                 Gapcloser.OnGapcloser += Gapcloser_OnGapcloser;
                 Interrupter.OnInterruptableSpell += Interrupter_OnInterruptableSpell;
                 Orbwalker.OnUnkillableMinion += Orbwalker_OnUnkillableMinion;
+                Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast2;
+                Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
             }
             catch (Exception e)
             {
