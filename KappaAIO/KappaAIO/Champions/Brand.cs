@@ -311,6 +311,10 @@
         {
             CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
             var flags = Orbwalker.ActiveModesFlags;
+            if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)) )
+            {
+               return;
+            }
 
             if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
             {
