@@ -174,7 +174,7 @@
                 Gapcloser.OnGapcloser += Gapcloser_OnGapcloser;
                 Interrupter.OnInterruptableSpell += Interrupter_OnInterruptableSpell;
                 Orbwalker.OnUnkillableMinion += Orbwalker_OnUnkillableMinion;
-
+                Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast2;
                 Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
             }
             catch (Exception e)
@@ -272,6 +272,39 @@
             }
         }
 
+         private static void Obj_AI_Base_OnProcessSpellCast2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            CurrentTarget = TargetSelector.GetTarget(W.Range + 300, DamageType.Magical);
+            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) || (CurrentTarget.Hero == Champion.Yasuo && sender.Mana >= 90))
+            {
+               return;
+            }
+            CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
+            if (W.IsReady() && sender.IsValidTarget(900) && !sender.IsInvulnerable && args.Target != CurrentTarget && !sender.IsDashing() && sender == CurrentTarget)
+            {
+
+                
+                if (args.End.Distance(Player.Instance.Position) >= 100 || args.SData.TargettingType == SpellDataTargetType.Unit)
+                {
+                    if (HarassMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                    {
+                        if (!LaneClearMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                        {
+                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            W.Cast(sender.ServerPosition);
+                        }
+                        else 
+                        {
+                            Chat.Print("End Cast:"+args.SData.Name);
+                            W.Cast(args.End);
+                        }  
+                    }
+
+
+                } 
+
+            } 
+        }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
             CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
