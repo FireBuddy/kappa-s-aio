@@ -322,7 +322,7 @@
                 
                 {
                  Chat.Print("Basic Attack:"+args.SData.Name);
-                 W.Cast(CurrentTarget.ServerPosition);
+
                 }
 
             }
