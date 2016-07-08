@@ -24,6 +24,8 @@
         private static readonly Spell.Targeted E;
 
         private static readonly Spell.Targeted R;
+        
+        public static AIHeroClient CurrentTarget;
 
         static Brand()
         {
@@ -172,7 +174,7 @@
                 Gapcloser.OnGapcloser += Gapcloser_OnGapcloser;
                 Interrupter.OnInterruptableSpell += Interrupter_OnInterruptableSpell;
                 Orbwalker.OnUnkillableMinion += Orbwalker_OnUnkillableMinion;
-                Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast2;
+
                 Obj_AI_Base.OnBasicAttack += Obj_AI_Base_OnBasicAttack;
             }
             catch (Exception e)
@@ -270,6 +272,29 @@
             }
         }
 
+        private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
+            var flags = Orbwalker.ActiveModesFlags;
+            if (sender == null || (!flags.HasFlag(Orbwalker.ActiveModes.Harass)) || (CurrentTarget.Hero == Champion.Yasuo && sender.Mana >= 90))
+            {
+               return;
+            }
+            CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
+            {
+                
+                
+                {
+                 Chat.Print("Basic Attack:"+args.SData.Name);
+                 W.Cast(CurrentTarget.ServerPosition);
+                }
+
+            }
+
+
+    
+        }
         public override void Harass()
         {
             var target = TargetSelector.GetTarget(Q.Range + 100, DamageType.Magical);
