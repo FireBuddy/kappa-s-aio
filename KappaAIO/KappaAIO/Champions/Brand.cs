@@ -105,6 +105,46 @@
                     JungleClearMenu.Add(spell.Slot + "mana", new Slider("Use " + spell.Slot + " if Mana% is more than [{0}%]", 65));
                     JungleClearMenu.AddSeparator(1);
                 }
+                
+                foreach (var enemy in EntityManager.Heroes.Enemies.Where(a => a.Team != Player.Instance.Team))
+                {
+                    foreach (
+                        var spell in
+                            enemy.Spellbook.Spells.Where(
+                                a =>
+                                    a.Slot == SpellSlot.Q || a.Slot == SpellSlot.W || a.Slot == SpellSlot.E ||
+                                    a.Slot == SpellSlot.R))
+                    {
+                        if (spell.Slot == SpellSlot.Q)
+                        {
+                            HarassMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
+                            LaneClearMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
+                        }
+                        else if (spell.Slot == SpellSlot.W)
+                        {
+                            HarassMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
+                            LaneClearMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));                            
+                        }
+                        else if (spell.Slot == SpellSlot.E)
+                        {
+                            HarassMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
+                            LaneClearMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - E - " + spell.Name, false));
+                        }
+                        else if (spell.Slot == SpellSlot.R)
+                        {
+                            HarassMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
+                            LaneClearMenu.Add(spell.SData.Name,
+                                new CheckBox(enemy.ChampionName + " - R - " + spell.Name, false));
+                        }
+                    }
+                }
 
                 KillStealMenu.AddGroupLabel("KillSteal");
                 foreach (var spell in SpellList)
