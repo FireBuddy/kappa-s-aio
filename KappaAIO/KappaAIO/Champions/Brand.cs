@@ -321,7 +321,6 @@
                 
                 
                 {
-                 Chat.Print("Basic Attack:"+args.SData.Name);
 
                 }
 
