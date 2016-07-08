@@ -309,7 +309,19 @@
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
+            CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
+            var flags = Orbwalker.ActiveModesFlags;
 
+            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
+            {
+                
+                
+                {
+                    Chat.Print("Basic Attack:"+args.SData.Name);
+                    W.Cast(CurrentTarget.ServerPosition);
+                }
+
+            }
             
 
 
