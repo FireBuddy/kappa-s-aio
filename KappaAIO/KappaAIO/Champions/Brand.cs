@@ -316,15 +316,7 @@
                return;
             }
             
-            if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
-            {
-                
-                
-                {
 
-                }
-
-            }
 
 
     
