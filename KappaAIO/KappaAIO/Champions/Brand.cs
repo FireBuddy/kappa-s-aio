@@ -125,13 +125,24 @@
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
                             LaneClearMenu.Add(spell.SData.Name,
                                 new CheckBox(enemy.ChampionName + " - Q - " + spell.Name, false));
+                            
                         }
                         else if (spell.Slot == SpellSlot.W)
                         {
+                            if(ememy.ChampionName == "Leblanc")
+                            {
+                            HarassMenu.Add("leblancslidereturn",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
+                            LaneClearMenu.Add("leblancslidereturn",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            }
+                            else
+                            {
                             HarassMenu.Add(spell.SData.Name,
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
                             LaneClearMenu.Add(spell.SData.Name,
-                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));                            
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));     
+                            }    
                         }
                         else if (spell.Slot == SpellSlot.E)
                         {
