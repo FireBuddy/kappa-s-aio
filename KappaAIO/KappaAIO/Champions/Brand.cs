@@ -129,7 +129,7 @@
                         }
                         else if (spell.Slot == SpellSlot.W)
                         {
-                            if(ememy.ChampionName == "Leblanc")
+                            if(enemy.ChampionName == "Leblanc")
                             {
                             HarassMenu.Add("leblancslidereturn",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
