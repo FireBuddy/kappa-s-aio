@@ -366,13 +366,12 @@
 
          private static void Obj_AI_Base_OnProcessSpellCast2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-            CurrentTarget = TargetSelector.GetTarget(W.Range + 300, DamageType.Magical);
+            CurrentTarget = TargetSelector.GetTarget(W.Range + 500, DamageType.Magical);
             if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) || (CurrentTarget.Hero == Champion.Yasuo && sender.Mana >= 90))
             {
                return;
             }
-            CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
-            if (W.IsReady() && sender.IsValidTarget(900) && !sender.IsInvulnerable && args.Target != CurrentTarget && !sender.IsDashing() && sender == CurrentTarget)
+            if (W.IsReady() && !sender.IsInvulnerable && args.Target != CurrentTarget && !sender.IsDashing() && sender == CurrentTarget)
             {
 
                 
@@ -380,12 +379,12 @@
                 {
                     if (HarassMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                     {
-                        if (!LaneClearMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
+                        if (sender.IsValidTarget(900) && !LaneClearMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                         {
                             Chat.Print("Pos Cast:"+args.SData.Name);
                             W.Cast(sender.ServerPosition);
                         }
-                        else 
+                        else if (args.End.Distance(Player.Instance.Position) <= 900)) 
                         {
                             Chat.Print("End Cast:"+args.SData.Name);
                             W.Cast(args.End);
