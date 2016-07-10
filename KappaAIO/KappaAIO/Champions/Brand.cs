@@ -132,8 +132,37 @@
                             if(enemy.ChampionName == "Leblanc")
                             {
                             HarassMenu.Add("leblancslidereturn",
-                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false));
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
                             LaneClearMenu.Add("leblancslidereturn",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            HarassMenu.Add("leblancslidereturnM",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            LaneClearMenu.Add("leblancslidereturnM",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            }
+                            else if(enemy.ChampionName == "Zed")
+                            {
+                            HarassMenu.Add("ZedW2",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            LaneClearMenu.Add("ZedW2",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            HarassMenu.Add("ZedR2",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            LaneClearMenu.Add("ZedR2",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            }
+                            else if(enemy.ChampionName == "Thresh")
+                            {
+                            HarassMenu.Add("LanternWAlly",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            LaneClearMenu.Add("LanternWAlly",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
+                            }
+                            else if(enemy.ChampionName == "Elise")
+                            {
+                            HarassMenu.Add("EliseHumanW",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            LaneClearMenu.Add("EliseHumanW",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
                             }
                             else
