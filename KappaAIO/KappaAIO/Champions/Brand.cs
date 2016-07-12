@@ -423,66 +423,12 @@
         }
         public override void Harass()
         {
-            var target = TargetSelector.GetTarget(Q.Range + 100, DamageType.Magical);
-            if (target == null)
-            {
-                return;
-            }
 
-            var Qready = HarassMenu.checkbox("Q") && Q.IsReady() && target.IsKillable(Q.Range) && Q.Mana(HarassMenu);
-
-            var Wready = HarassMenu.checkbox("W") && W.IsReady() && target.IsKillable(W.Range) && W.Mana(HarassMenu);
-
-            var Eready = HarassMenu.checkbox("E") && E.IsReady() && target.IsKillable(E.Range) && E.Mana(HarassMenu);
-
-            if (Qready)
-            {
-                Qlogic(target);
-            }
-
-            if (Wready)
-            {
-                Wlogic(target);
-            }
-
-            if (Eready)
-            {
-                Elogic(target);
-            }
         }
 
         public override void LaneClear()
         {
-            var target = EntityManager.MinionsAndMonsters.EnemyMinions.FirstOrDefault(m => m.IsKillable(Q.Range + 50));
 
-            if (target == null)
-            {
-                return;
-            }
-
-            var Qready = LaneClearMenu["Q"].Cast<CheckBox>().CurrentValue && Q.IsReady() && target.IsKillable(Q.Range) && Q.Mana(LaneClearMenu);
-
-            var Wready = LaneClearMenu["W"].Cast<CheckBox>().CurrentValue && W.IsReady() && target.IsKillable(W.Range) && W.Mana(LaneClearMenu);
-
-            var Eready = LaneClearMenu["E"].Cast<CheckBox>().CurrentValue && E.IsReady() && target.IsKillable(E.Range) && E.Mana(LaneClearMenu);
-            
-            if (!LaneClearMenu["LaneClear"].Cast<KeyBind>().CurrentValue)
-            {    
-                if (Qready)
-                {
-                    Qlogic(target);
-                }
-    
-                if (Wready)
-                {
-                    Wlogic(target);
-                }
-    
-                if (Eready)
-                {
-                    Elogic(target);
-                }
-            }
         }
 
         public override void JungleClear()
