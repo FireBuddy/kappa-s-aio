@@ -99,12 +99,6 @@
 
                 foreach (var spell in SpellList.Where(s => s.Slot != SpellSlot.R))
                 {
-                    HarassMenu.Add(spell.Slot.ToString(), new CheckBox("Use " + spell.Slot));
-                    HarassMenu.Add(spell.Slot + "mana", new Slider("Use " + spell.Slot + " if Mana% is more than [{0}%]", 65));
-                    HarassMenu.AddSeparator(1);
-                    LaneClearMenu.Add(spell.Slot.ToString(), new CheckBox("Use " + spell.Slot));
-                    LaneClearMenu.Add(spell.Slot + "mana", new Slider("Use " + spell.Slot + " if Mana% is more than [{0}%]", 65));
-                    LaneClearMenu.AddSeparator(1);
                     JungleClearMenu.Add(spell.Slot.ToString(), new CheckBox("Use " + spell.Slot));
                     JungleClearMenu.Add(spell.Slot + "mana", new Slider("Use " + spell.Slot + " if Mana% is more than [{0}%]", 65));
                     JungleClearMenu.AddSeparator(1);
