@@ -503,8 +503,6 @@
             }
 
             var Combomode = Common.orbmode(Orbwalker.ActiveModes.Combo);
-            var Harassmode = Common.orbmode(Orbwalker.ActiveModes.Harass);
-            var LaneClearmode = Common.orbmode(Orbwalker.ActiveModes.LaneClear);
             var JungleClearmode = Common.orbmode(Orbwalker.ActiveModes.JungleClear);
 
             if (Combomode)
@@ -519,27 +517,6 @@
                 else
                 {
                     Q.Cast(target, Q.hitchance(Menuini));
-                }
-            }
-
-            if (Harassmode)
-            {
-                Q.Cast(target, Q.hitchance(Menuini));
-            }
-
-            if (LaneClearmode)
-            {
-                var minion =
-                    EntityManager.MinionsAndMonsters.EnemyMinions.FirstOrDefault(
-                        m => Q.GetDamage(m) >= Prediction.Health.GetPrediction(m, Q.CastDelay) && Q.GetPrediction(m).HitChance >= HitChance.High);
-                if (minion != null)
-                {
-                    if (user.GetAutoAttackDamage(minion, true) >= Prediction.Health.GetPrediction(minion, (int)Orbwalker.AttackDelay))
-                    {
-                        return;
-                    }
-
-                    Q.Cast(minion);
                 }
             }
 
@@ -562,8 +539,6 @@
             }
 
             var Combomode = Common.orbmode(Orbwalker.ActiveModes.Combo);
-            var Harassmode = Common.orbmode(Orbwalker.ActiveModes.Harass);
-            var LaneClearmode = Common.orbmode(Orbwalker.ActiveModes.LaneClear);
             var JungleClearmode = Common.orbmode(Orbwalker.ActiveModes.JungleClear);
 
             var enemies = EntityManager.Heroes.Enemies.Where(e => e.IsKillable(W.Range) && e.IsKillable());
@@ -589,29 +564,6 @@
                 }
             }
 
-            if (Harassmode)
-            {
-                if (castpos != null && castpos.CollisionObjects.Length > 1)
-                {
-                    W.Cast(castpos.CastPosition);
-                }
-
-                W.Cast(target, W.hitchance(Menuini));
-            }
-
-            if (LaneClearmode)
-            {
-                var minions = EntityManager.MinionsAndMonsters.EnemyMinions.Where(e => e.IsKillable(W.Range) && e.IsKillable());
-                var loc = EntityManager.MinionsAndMonsters.GetCircularFarmLocation(minions.ToArray(), W.Width + 75, (int)W.Range + 50, W.CastDelay, W.Speed);
-
-                var farmpos = loc.CastPosition;
-
-                if (farmpos != null && loc.HitNumber >= 4)
-                {
-                    W.Cast(farmpos);
-                }
-            }
-
             if (JungleClearmode)
             {
                 var minions = EntityManager.MinionsAndMonsters.GetJungleMonsters().OrderByDescending(m => m.MaxHealth).Where(e => e.IsKillable(W.Range) && e.IsKillable());
@@ -633,8 +585,6 @@
             }
 
             var Combomode = Common.orbmode(Orbwalker.ActiveModes.Combo);
-            var Harassmode = Common.orbmode(Orbwalker.ActiveModes.Harass);
-            var LaneClearmode = Common.orbmode(Orbwalker.ActiveModes.LaneClear);
             var JungleClearmode = Common.orbmode(Orbwalker.ActiveModes.JungleClear);
 
             if (Combomode)
@@ -649,26 +599,6 @@
                 }
             }
 
-            if (Harassmode)
-            {
-                E.Cast(target);
-            }
-
-            if (LaneClearmode)
-            {
-                var minionpassive = EntityManager.MinionsAndMonsters.EnemyMinions.Where(m => m.brandpassive() && m.IsKillable(E.Range));
-                if (minionpassive != null)
-                {
-                    foreach (var minion in minionpassive)
-                    {
-                        var count = minion.CountEnemyMinions(300);
-                        if (count >= 2)
-                        {
-                            E.Cast(minion);
-                        }
-                    }
-                }
-            }
 
             if (JungleClearmode)
             {
