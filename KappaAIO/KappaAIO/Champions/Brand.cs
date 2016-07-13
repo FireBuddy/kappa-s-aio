@@ -31,8 +31,8 @@
         {
             try
             {
-                Q = new Spell.Skillshot(SpellSlot.Q, 1000, SkillShotType.Linear, 250, 1600, 120);
-                W = new Spell.Skillshot(SpellSlot.W, 900, SkillShotType.Circular, 650, -1, 120);
+                Q = new Spell.Skillshot(SpellSlot.Q, 1000, SkillShotType.Linear, 250, 1550, 120);
+                W = new Spell.Skillshot(SpellSlot.W, 900, SkillShotType.Circular, 650, -1, 250);
                 E = new Spell.Targeted(SpellSlot.E, 630);
                 R = new Spell.Targeted(SpellSlot.R, 750);
 
