@@ -405,15 +405,10 @@
                 
                 {
                     Chat.Print("Basic Attack:"+args.SData.Name);
-                    W.Cast(CurrentTarget.ServerPosition);
+                    W.Cast(CurrentTarget.ServerPosition.To3D());
                 }
 
             }
-            
-
-
-
-    
         }
         public override void Harass()
         {
