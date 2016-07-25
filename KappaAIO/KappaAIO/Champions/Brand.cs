@@ -401,12 +401,10 @@
 
             else if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
             {
-                
-                
-                {
+
                     Chat.Print("Basic Attack:"+args.SData.Name);
                     W.Cast(sender.ServerPosition);
-                }
+                
 
             }
         }
