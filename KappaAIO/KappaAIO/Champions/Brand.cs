@@ -404,7 +404,7 @@
 
                     Chat.Print("Basic Attack:"+args.SData.Name);
                     W.Cast(sender.ServerPosition);
-                
+                    break;
 
             }
         }
