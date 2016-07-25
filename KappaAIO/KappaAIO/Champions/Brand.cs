@@ -405,7 +405,7 @@
                 
                 {
                     Chat.Print("Basic Attack:"+args.SData.Name);
-                    W.Cast(CurrentTarget.ServerPosition.To3D());
+                    //W.Cast(CurrentTarget.ServerPosition);
                 }
 
             }
