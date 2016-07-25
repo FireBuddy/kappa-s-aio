@@ -402,8 +402,9 @@
             else if (sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
             {
 
+                    var position = sender.ServerPosition;
                     Chat.Print("Basic Attack:"+args.SData.Name);
-                    W.Cast(sender.ServerPosition);
+                    W.Cast(position);
                     return;
 
             }
