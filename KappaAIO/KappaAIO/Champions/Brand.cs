@@ -395,7 +395,7 @@
             CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
             var flags = Orbwalker.ActiveModesFlags;
 
-             if ((CurrentTarget.Hero != Champion.Yasuo && sender.Mana <= 90)) && flags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
+             if ((CurrentTarget.Hero != Champion.Yasuo && sender.Mana <= 90) && flags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
             {
 
                     var position = sender.ServerPosition;
