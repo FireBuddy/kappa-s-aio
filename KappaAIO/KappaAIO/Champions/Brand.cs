@@ -392,8 +392,8 @@
         }
         private static void Obj_AI_Base_OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-            var CurrentTargett = TargetSelector.GetTarget(W.Range, DamageType.Magical);
-            if((AIHeroClient)CurrentTargett.Hero != Champion.Yasuo && sender.Mana <= 90)
+            var CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
+           // if(CurrentTarget.Hero != Champion.Yasuo && sender.Mana <= 90)
             {
                 if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTargett && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
                 {
