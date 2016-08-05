@@ -394,7 +394,7 @@ namespace KappaAIO.Champions
         {
             CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
             //(CurrentTarget.Hero != Champion.Yasuo && sender.Mana <= 90)//
-            if ( Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
+            if ((CurrentTarget.Hero != Champion.Yasuo || sender.Mana <= 90) && Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
             {
 
                     W.Cast(sender.ServerPosition);
