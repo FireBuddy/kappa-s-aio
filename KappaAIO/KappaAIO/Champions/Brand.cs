@@ -376,12 +376,12 @@ namespace KappaAIO.Champions
                     {
                         if (sender.IsValidTarget(900) && !LaneClearMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                         {
-                            Chat.Print("Pos Cast:"+args.SData.Name);
+                            //Chat.Print("Pos Cast:"+args.SData.Name);
                             W.Cast(sender.ServerPosition);
                         }
                         else if (args.End.Distance(Player.Instance.Position) <= 900 && LaneClearMenu[args.SData.Name].Cast<CheckBox>().CurrentValue)
                         {
-                            Chat.Print("End Cast:"+args.SData.Name);
+                            //Chat.Print("End Cast:"+args.SData.Name);
                             W.Cast(args.End);
                         }  
                     }
@@ -399,7 +399,7 @@ namespace KappaAIO.Champions
             {
 
                     W.Cast(sender.ServerPosition);
-                    Chat.Print("Basic Attack:"+args.SData.Name);
+                    //Chat.Print("Basic Attack:"+args.SData.Name);
                     
 
 
