@@ -360,8 +360,9 @@ namespace KappaAIO.Champions
 
          private static void Obj_AI_Base_OnProcessSpellCast2(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
+            //|| (CurrentTarget.Hero == Champion.Yasuo && sender.Mana >= 90)
             CurrentTarget = TargetSelector.GetTarget(W.Range + 500, DamageType.Magical);
-            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) || (CurrentTarget.Hero == Champion.Yasuo && sender.Mana >= 90))
+            if (sender == null || !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass))
             {
                return;
             }
@@ -394,7 +395,7 @@ namespace KappaAIO.Champions
         {
             CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
             //(CurrentTarget.Hero != Champion.Yasuo && sender.Mana <= 90)//
-            if ((CurrentTarget.Hero != Champion.Yasuo || sender.Mana <= 90) && Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
+            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
             {
 
                     W.Cast(sender.ServerPosition);
