@@ -409,6 +409,11 @@ namespace KappaAIO.Champions
         {
           CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
           var minion = EntityManager.MinionsAndMonsters.GetLaneMinions().Where(a => a.Distance(Player.Instance) < E.Range && a.Distance(CurrentTarget.ServerPosition) < 150 && a.brandpassive()).OrderBy(a => a.Health).FirstOrDefault();
+          if (minion != null && E.IsReady)
+          {
+              E.Cast(minion);
+          }
+            
         }
 
         public override void LaneClear()
