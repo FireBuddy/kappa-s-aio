@@ -407,7 +407,7 @@ namespace KappaAIO.Champions
         }
         public override void Harass()
         {
-
+          var minion = EntityManager.MinionsAndMonsters.GetLaneMinions().Where(a => a.Distance(Player.Instance) < E.Range).OrderBy(a => a.Health).FirstOrDefault();
         }
 
         public override void LaneClear()
