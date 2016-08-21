@@ -412,7 +412,7 @@ namespace KappaAIO.Champions
           if (minion != null && E.IsReady)
           foreach (var minions in minion)
           {
-              E.Cast(minions);
+              //E.Cast(minions);
           }
             
         }
