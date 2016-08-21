@@ -408,11 +408,10 @@ namespace KappaAIO.Champions
         public override void Harass()
         {
           CurrentTarget = TargetSelector.GetTarget(W.Range, DamageType.Magical);
-          var minion = EntityManager.MinionsAndMonsters.GetLaneMinions().Where(a => a.Distance(Player.Instance) < E.Range && a.Distance(CurrentTarget.ServerPosition) < 150 && a.brandpassive());
+          var minion = EntityManager.MinionsAndMonsters.GetLaneMinions().Where(a => a.Distance(Player.Instance) < E.Range && a.Distance(CurrentTarget.ServerPosition) < 150 && a.brandpassive()).OrderBy(a => a.Health).FirstOrDefault();
           if (minion != null && E.IsReady)
-          //foreach (var minions in minion)
           {
-              //E.Cast(minions);
+              E.Cast(minion);
           }
             
         }
