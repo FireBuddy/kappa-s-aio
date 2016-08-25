@@ -412,6 +412,23 @@ namespace KappaAIO.Champions
 
 
             }
+            if (sender.brandpassive() && Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(Q.Range) && Q.IsReady() && sender.IsEnemy)
+            {
+
+                    if (CurrentTarget.Hero != Champion.Yasuo && Q.GetPrediction(sender).HitChance >= HitChance.Medium)
+                    {
+                      Q.Cast(sender.ServerPosition);
+                    //Chat.Print("Basic Attack:"+args.SData.Name);
+                    }
+                    else if (sender.Mana <= 90 && Q.GetPrediction(sender).HitChance >= HitChance.Medium)
+                    {
+                      Q.Cast(sender.ServerPosition);
+                    }
+                    
+                    
+
+
+            }
         }
         public override void Harass()
         {
