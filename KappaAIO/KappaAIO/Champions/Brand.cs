@@ -171,6 +171,15 @@ namespace KappaAIO.Champions
                             LaneClearMenu.Add("LanternWAlly",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true)); 
                             }
+                            else if(enemy.ChampionName == "TwistedFate")
+                            {
+                            HarassMenu.Add("BlueCardAttack",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            HarassMenu.Add("RedCardAttack",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            HarassMenu.Add("GoldCardAttack",
+                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
+                            }
                             else if(enemy.ChampionName == "Elise")
                             {
                             HarassMenu.Add("EliseHumanW",
