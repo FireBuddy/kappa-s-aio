@@ -398,8 +398,16 @@ namespace KappaAIO.Champions
             if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Harass) && sender == CurrentTarget && !sender.IsDashing() && sender.Type == GameObjectType.AIHeroClient && sender.IsValidTarget(W.Range) && W.IsReady() && sender.IsEnemy)
             {
 
+                    if (CurrentTarget.Hero != Champion.Yasuo)
+                    {
                     W.Cast(sender.ServerPosition);
                     //Chat.Print("Basic Attack:"+args.SData.Name);
+                    }
+                    else if (sender.Mana <= 90)
+                    {
+                    W.Cast(sender.ServerPosition);
+                    }
+                    
                     
 
 
