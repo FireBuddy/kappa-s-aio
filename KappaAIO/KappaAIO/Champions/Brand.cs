@@ -349,6 +349,7 @@ namespace KappaAIO.Champions
 
             if (Qready)
             {
+                 Chat.Print("combo q");
                 Qlogic(target);
             }
 
