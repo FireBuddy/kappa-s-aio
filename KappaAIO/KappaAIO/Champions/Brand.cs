@@ -549,7 +549,7 @@ namespace KappaAIO.Champions
                 else
                 {
                     Chat.Print("q");
-                    Q.Cast(target, Q.hitchance(Menuini));
+                    Q.Cast(target);
                 }
             }
 
