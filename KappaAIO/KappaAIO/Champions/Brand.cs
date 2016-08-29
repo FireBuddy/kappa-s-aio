@@ -355,6 +355,7 @@ namespace KappaAIO.Champions
 
             if (Wready)
             {
+                Chat.Print("combo w");
                 Wlogic(target);
             }
 
