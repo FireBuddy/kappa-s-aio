@@ -583,7 +583,7 @@ namespace KappaAIO.Champions
                         W.Cast(castpos.CastPosition);
                     }
 
-                    if (target.brandpassive() || target.HasBuffOfType(BuffType.Slow) || !target.CanMove)
+                    if (target.brandpassive() || target.HasBuffOfType(BuffType.Slow))
                     {
                         W.Cast(target, W.hitchance(Menuini));
                     }
