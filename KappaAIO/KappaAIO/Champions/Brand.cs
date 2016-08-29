@@ -349,7 +349,8 @@ namespace KappaAIO.Champions
 
             if (Qready)
             {
-                Qlogic(target);
+                //Qlogic(target);
+                Q.Cast(target);
             }
 
             if (Wready)
@@ -477,6 +478,7 @@ namespace KappaAIO.Champions
             if (Qready)
             {
                 Qlogic(target);
+                
             }
 
             if (Wready)
