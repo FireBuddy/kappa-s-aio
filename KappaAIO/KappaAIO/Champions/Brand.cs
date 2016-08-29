@@ -349,8 +349,8 @@ namespace KappaAIO.Champions
 
             if (Qready)
             {
-                //Qlogic(target);
-                Q.Cast(target);
+                Qlogic(target);
+                
             }
 
             if (Wready)
@@ -532,7 +532,7 @@ namespace KappaAIO.Champions
             if (target == null)
             {
                 return;
-                Chat.Print("null");
+                
             }
 
             var Combomode = Common.orbmode(Orbwalker.ActiveModes.Combo);
@@ -544,14 +544,14 @@ namespace KappaAIO.Champions
                 {
                     if (target.brandpassive())
                     {
-                        Chat.Print("passive q");
+
                         Q.Cast(target, Q.hitchance(Menuini));
                     }
                 }
                 else
                 {
-                    Chat.Print("q");
-                    Q.Cast(target);
+;
+                     Q.Cast(target, Q.hitchance(Menuini));
                 }
             }
 
