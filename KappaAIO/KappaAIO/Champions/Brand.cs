@@ -350,7 +350,7 @@ namespace KappaAIO.Champions
             if (Qready)
             {
                 //Qlogic(target);
-                W.Cast(target);
+                Q.Cast(target);
             }
 
             if (Wready)
