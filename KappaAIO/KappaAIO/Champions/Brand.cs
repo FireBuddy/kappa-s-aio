@@ -31,8 +31,8 @@ namespace KappaAIO.Champions
         {
             try
             {
-                Q = new Spell.Skillshot(SpellSlot.Q, 1000, SkillShotType.Linear, 250, 1570, 60);
-                W = new Spell.Skillshot(SpellSlot.W, 900, SkillShotType.Circular, 400, -1, 100);
+                Q = new Spell.Skillshot(SpellSlot.Q, 1000, SkillShotType.Linear, 250, 1600, 60);
+                W = new Spell.Skillshot(SpellSlot.W, 900, SkillShotType.Circular, 850, -1, 100);
                 E = new Spell.Targeted(SpellSlot.E, 630);
                 R = new Spell.Targeted(SpellSlot.R, 750);
 
@@ -350,7 +350,6 @@ namespace KappaAIO.Champions
             if (Qready)
             {
                 Qlogic(target);
-                
             }
 
             if (Wready)
@@ -478,7 +477,6 @@ namespace KappaAIO.Champions
             if (Qready)
             {
                 Qlogic(target);
-                
             }
 
             if (Wready)
@@ -532,7 +530,6 @@ namespace KappaAIO.Champions
             if (target == null)
             {
                 return;
-                
             }
 
             var Combomode = Common.orbmode(Orbwalker.ActiveModes.Combo);
@@ -544,14 +541,12 @@ namespace KappaAIO.Champions
                 {
                     if (target.brandpassive())
                     {
-
                         Q.Cast(target, Q.hitchance(Menuini));
                     }
                 }
                 else
                 {
-;
-                     Q.Cast(target, Q.hitchance(Menuini));
+                    Q.Cast(target, Q.hitchance(Menuini));
                 }
             }
 
@@ -588,7 +583,7 @@ namespace KappaAIO.Champions
                         W.Cast(castpos.CastPosition);
                     }
 
-                    if (target.brandpassive() || target.HasBuffOfType(BuffType.Slow))
+                    if (target.brandpassive() || target.HasBuffOfType(BuffType.Slow) || !target.CanMove)
                     {
                         W.Cast(target, W.hitchance(Menuini));
                     }
