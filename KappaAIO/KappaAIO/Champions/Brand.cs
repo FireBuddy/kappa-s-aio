@@ -173,18 +173,12 @@ namespace KappaAIO.Champions
                             }
                             else if(enemy.ChampionName == "TwistedFate")
                             {
-                            HarassMenu.Add("BlueCardPreAttack",
+                            HarassMenu.Add("BlueCardAttack",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
-                            LaneClearMenu.Add("BlueCardPreAttack",
-                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false)); 
-                            HarassMenu.Add("RedCardPreAttack",
+                            HarassMenu.Add("RedCardAttack",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
-                            LaneClearMenu.Add("RedCardPreAttack",
-                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false)); 
-                            HarassMenu.Add("GoldCardPreAttack",
+                            HarassMenu.Add("GoldCardAttack",
                                 new CheckBox(enemy.ChampionName + " - W - " + spell.Name, true));
-                            LaneClearMenu.Add("GoldCardPreAttack",
-                                new CheckBox(enemy.ChampionName + " - W - " + spell.Name, false)); 
                             }
                             else if(enemy.ChampionName == "Elise")
                             {
